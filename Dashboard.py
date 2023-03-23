@@ -13,6 +13,7 @@ import tensorflow as tf
 from sklearn.preprocessing import MinMaxScaler
 from dash.dependencies import Input, Output
 from sklearn.model_selection import train_test_split
+import os
 
 
 available_currencies = ['BTC/USDT', 'ETH/USDT', 'LTC/USDT', 'XRP/USDT', 'BCH/USDT']
@@ -274,4 +275,4 @@ def update_dashboard(n, selected_currency):
             trades_data)
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, host='0.0.0.0', port=os.environ['PORT'])
